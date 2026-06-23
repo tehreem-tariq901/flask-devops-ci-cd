@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>Trainer Details</title>
+
+<link rel="stylesheet"
+
+href="{{ url_for('static',filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<header>
+
+<img class="logo"
+
+src="{{ url_for('static',filename='images/technology logo.jpg') }}">
+
+<nav>
+
+<ul>
+
+<li><a href="/">HOME</a></li>
+
+<li><a href="/trainer_data">ALNAFI TSHEET</a></li>
+
+<li><a href="/trainer">TRAINER</a></li>
+
+<li><a href="/trainer_data">DISPLAY</a></li>
+
+</ul>
+
+</nav>
+
+</header>
+
+<div class="form-box">
+
+<h1>Trainer Details</h1>
+
+<form action="/trainer_create" method="POST">
+
+<label>First Name</label>
+
+<input type="text" name="fname">
+
+<label>Last Name</label>
+
+<input type="text" name="lname">
+
+<label>Designation</label>
+
+<input type="text" name="design">
+
+<label>Course</label>
+
+<input type="text" name="course">
+
+<button type="submit">
+
+Submit
+
+</button>
+
+</form>
+
+</div>
+
+</body>
+
+</html>

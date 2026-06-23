@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>Login</title>
+
+<link rel="stylesheet"
+
+href="{{ url_for('static',filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<header>
+
+<img class="logo"
+
+src="{{ url_for('static',filename='images/technology logo.jpg') }}">
+
+
+</header>
+
+<div id="content_header"></div>
+
+<div id="site_content">
+
+<div class="form-settings">
+
+
+<h1>LOGIN PAGE</h1>
+
+
+<form id="reused_form"
+
+method="post"
+
+action="{{ url_for('login') }}">
+
+<p>
+
+<span>Username</span>
+
+<input type="text"
+
+name="username"
+
+required
+
+class="form-control"
+
+placeholder="Enter the username">
+
+</p>
+
+<p>
+
+<span>Password</span>
+
+<input type="password"
+
+name="password"
+
+required
+
+class="form-control"
+
+placeholder="Enter the password">
+
+</p>
+{% if msg %}
+
+<p style="color:red; font-weight:bold; text-align:center;">
+
+{{ msg }}
+
+</p>
+
+{% endif %}
+<p>
+
+<input class="submit"
+
+type="submit"
+
+name="submit"
+
+value="Submit">
+
+</p>
+
+<p>
+
+Don't have an account?
+
+</p>
+
+<a href="{{ url_for('register') }}"> Create Account</a>
+
+</form>
+
+</div>
+
+</div>
+
+</body>
+
+</html>

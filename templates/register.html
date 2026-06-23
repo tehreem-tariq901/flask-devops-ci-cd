@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>Register</title>
+
+<link rel="stylesheet"
+
+href="{{ url_for('static',
+filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<header>
+
+<img class="logo"
+
+src="{{ url_for('static',
+filename='images/technology logo.jpg') }}">
+
+</header>
+
+<div class="form-box">
+
+<h1>Create Account</h1>
+{% if msg %}
+<p style="color:red;">
+{{ msg }}
+</p>
+{% endif %}
+
+<form method="POST"
+      action="{{ url_for('create_account') }}">
+
+<label>Username</label>
+
+<input type="text"
+
+name="username"
+
+required>
+
+<br><br>
+
+<label>Password</label>
+
+<input type="password"
+
+name="password"
+
+required>
+
+<br><br>
+
+<label>Email</label>
+
+<input type="text"
+
+name="email"
+
+required>
+
+
+<button type="submit"
+
+style="margin-left:300px;">
+
+Register
+
+</button>
+
+<p>
+
+Already have an account?
+</p>
+
+<a href="{{ url_for('login') }}">
+
+Login
+
+</a>
+
+
+
+</form>
+
+</div>
+
+</body>
+
+</html>

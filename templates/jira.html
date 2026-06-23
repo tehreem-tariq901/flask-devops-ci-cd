@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>Jira Ticket Creation</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<header>
+
+<img class="logo"
+src="{{ url_for('static', filename='images/technology logo.jpg') }}">
+
+<nav>
+
+<ul>
+
+<li><a href="/">HOME</a></li>
+
+<li><a href="/trainer_data">ALNAFI TSHEET</a></li>
+
+<li><a href="/trainer">TRAINER</a></li>
+
+<li><a href="/jira">JIRA</a></li>
+
+</ul>
+
+</nav>
+
+</header>
+
+<div class="form-box">
+
+<h1>Jira Ticket Creation</h1>
+
+<form id="reused_form"
+
+method="POST"
+
+action="{{ url_for('jira_create') }}">
+
+<label>Project</label>
+
+<select name="project">
+
+<option value="IIS">
+
+IT-Infra-space (IIS)
+
+</option>
+
+<option value="PP">
+
+Python Project (PP)
+
+</option>
+
+<option value="AC">
+
+alnafi_cloud (AC)
+
+</option>
+
+</select>
+
+<br><br>
+
+<label>Issue Type</label>
+
+<select name="issue_type">
+
+<option value="Issue">
+
+Issue
+
+</option>
+
+<option value="Task">
+
+Task
+
+</option>
+
+<option value="Story">
+
+Story
+
+</option>
+
+<option value="Request">
+
+Request
+
+</option>
+
+</select>
+
+<br><br>
+
+<label>Reporter Name</label>
+
+<select name="reporter">
+
+<option value="712020:5aac7866-409f-4bb9-xxxx">
+
+Tehreem Tariq
+
+</option>
+
+</select>
+
+<br><br>
+
+<label>Summary</label>
+
+<input type="text"
+
+name="summary">
+
+<br><br>
+
+<label>Description</label>
+
+<textarea name="description"
+
+rows="5"></textarea>
+
+<br><br>
+
+<label>Priority</label>
+
+<select name="priority">
+
+<option value="Low">
+
+Low
+
+</option>
+
+<option value="Medium">
+
+Medium
+
+</option>
+
+<option value="High">
+
+High
+
+</option>
+
+</select>
+
+<br><br>
+
+<button type="submit">
+
+Create Ticket
+
+</button>
+
+</form>
+
+</div>
+
+</body>
+
+</html>
