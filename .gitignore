@@ -5,3 +5,11 @@ Scripts
 __pycache__/
 *.pyc
 pyvenv.cfg
+# Environment variables
+.env
+
+# Python virtual environment
+venv/
+
+# Docker/MySQL temporary files
+*.log

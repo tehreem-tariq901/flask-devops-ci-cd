@@ -7,9 +7,9 @@ import re
 
 app = Flask(__name__)
 mydata = "TEST page"
-app.config['MYSQL_DATABASE_HOST'] = '192.168.0.107'
+app.config['MYSQL_DATABASE_HOST'] = 'mysql'
 app.config['MYSQL_DATABASE_USER'] = 'mysql_user'
-app.config['MYSQL_DATABASE_PASSWORD'] = ''
+app.config['MYSQL_DATABASE_PASSWORD'] = 'Tehreem123@'
 app.config['MYSQL_DATABASE_DB'] = 'tehreem'
 mysql = MySQL(app)
 app.secret_key='tehreeeeee32111'
@@ -158,7 +158,7 @@ def trainer_data():
 @app.route("/jira")
 def jira():
     if 'logged_in' in session:
-        return render_template("Jira.html",username=session['username'])
+        return render_template("jira.html",username=session['username'])
     return redirect(url_for('login'))
 
 @app.route("/jira_create", methods=["GET","POST"])
@@ -169,8 +169,6 @@ def jira_create():
 
         issue_data = request.form["issue_type"]
 
-        report_data = request.form["reporter"]
-
         summary_data = request.form["summary"]
 
         description_data = request.form["description"]
@@ -178,11 +176,11 @@ def jira_create():
         priority_data = request.form["priority"]
 
 
-        server = "https://tehreemtariq901.atlassian.net"
+        server = "https://tehreemtariq901-1786045675322tehreem-devops.atlassian.net"
 
         user = "tehreemtariq901@gmail.com"
 
-        api_key = ""
+        api_key = "ATATT3xFfGF0NPajDibnQEcdfEgDXuny7qms0m0z5Lo-34ttVk78tC44t6loYjD3KOL3wbokhx2OV4u-8mEZKcHZZBHOvw2XDMxlPw_j_7VUkQJxYFd0csnJoRjVZpeE-j5eqFwTygO8zFWNI1mHUaqewb70CZj-dTKrFQubfIPq0gkZnsDJTyw=0DA2E615"
 
 
         jira = JIRA(
@@ -222,7 +220,7 @@ def jira_create():
 
 
 
-    return render_template("Jira.html")
+    return render_template("jira.html")
 
 @app.route("/login", methods=["POST","GET"])
 def login():
