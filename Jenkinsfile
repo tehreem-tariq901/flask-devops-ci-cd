@@ -14,7 +14,23 @@ pipeline {
         stage('Validate Compose') {
             steps {
                 echo 'Validating Docker Compose configuration'
-                sh 'docker compose config -q'
+
+                withCredentials([
+                    usernamePassword(
+                        credentialsId: 'mysql-credentials',
+                        usernameVariable: 'MYSQL_USER',
+                        passwordVariable: 'MYSQL_PASSWORD'
+                    ),
+                    string(
+                        credentialsId: 'mysql-root-password',
+                        variable: 'MYSQL_ROOT_PASSWORD'
+                    )
+                ]) {
+                    sh '''
+                        export MYSQL_DATABASE="tehreem"
+                        docker compose config -q
+                    '''
+                }
             }
         }
 
