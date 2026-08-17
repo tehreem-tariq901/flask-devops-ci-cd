@@ -4,13 +4,6 @@ pipeline {
 
     stages {
 
-        stage('Checkout') {
-            steps {
-                echo 'Checking out project code'
-                checkout scm
-            }
-        }
-
         stage('Build Docker Image') {
             steps {
                 echo 'Building Flask Docker image'
@@ -28,7 +21,23 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying application with Docker Compose'
-                sh 'docker compose up -d'
+
+                withCredentials([
+                    usernamePassword(
+                        credentialsId: 'mysql-credentials',
+                        usernameVariable: 'MYSQL_USER',
+                        passwordVariable: 'MYSQL_PASSWORD'
+                    ),
+                    string(
+                        credentialsId: 'mysql-root-password',
+                        variable: 'MYSQL_ROOT_PASSWORD'
+                    )
+                ]) {
+                    sh '''
+                        export MYSQL_DATABASE="tehreem"
+                        docker compose up -d
+                    '''
+                }
             }
         }
     }
